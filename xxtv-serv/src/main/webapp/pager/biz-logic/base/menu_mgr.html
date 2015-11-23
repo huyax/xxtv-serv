@@ -41,7 +41,7 @@ window.menus.push({id:0,isParent:true, parentID:-1,status:1,showName:'ROOT',menu
                     <div class="form-field">
                         <label for="parentName">父菜单：<font color="red">*</font></label>
                         <input class="easyui-validatebox" type="text" name="sysmenus.parentName" id="parentName" readonly="readonly" data-options="required:true" />
-                        <input type="hidden" name="sysmenus.parentID" />
+                        <input type="hidden" name="sysmenus.parentID" id="parentID"/>
                     </div>
                     <div class="form-field">
                         <label for="parentName">排序：<font color="red"></font></label>
@@ -49,8 +49,8 @@ window.menus.push({id:0,isParent:true, parentID:-1,status:1,showName:'ROOT',menu
                     </div>
                     <div class="form-field">
                         <label for="url">类型：<font color="red">*</font></label>
-                        <input class="easyui-validatebox" type="radio" name="sysmenus.isParent" value="true" /><span>菜单目录</span>
-                        <input class="easyui-validatebox" type="radio" name="sysmenus.isParent" value="false" checked="checked" /><span>菜单资源</span>
+                        <input class="easyui-validatebox" id="radio-true" type="radio" name="sysmenus.isParent" value="true" /><span>菜单目录</span>
+                        <input class="easyui-validatebox" id="radio-false" type="radio" name="sysmenus.isParent" value="false" checked="checked" /><span>菜单资源</span>
                     </div>
                     <div class="form-field">
                         <label for="parentName">状态：<font color="red">*</font></label>

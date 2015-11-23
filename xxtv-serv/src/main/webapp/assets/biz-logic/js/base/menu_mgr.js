@@ -7,8 +7,13 @@ $(function(){
         var btn = $("#addBtn_"+treeNode.tId);
         if (btn) btn.bind("click", function(){
             $('#menuEditForm').resetForm();
-            var node = {isParent:false, parentID:treeNode.id, parentName:treeNode.menuName,id:''};
-            $('#menuEditForm')._jsonToForm(node);
+//            var node = {"sysmenus.isParent":false, "sysmenus.parentID":treeNode.id, "sysmenus.parentName":treeNode.menuName,"sysmenus.id":''};
+//            $('#menuEditForm')._jsonToForm(node);
+            $('#parentID').val(treeNode.id);
+            $('#parentName').val(treeNode.menuName);
+            $('#id').val('');
+            $("#radio-false").attr("checked","true"); 
+            $('#parentID').val(treeNode.id);
             $('#menuName').focus();
             return false;
         });
@@ -53,7 +58,17 @@ $(function(){
             },
             beforeEditName : function(treeId, treeNode) {
                 if(treeNode.parentID == null)treeNode.parentID = 0;
+                
                 $('#menuEditForm')._jsonToForm(treeNode);
+                $('#parentID').val(treeNode.parentID);
+                $('#id').val('');
+                $("#radio-false").attr("checked","true"); 
+                $('#menuName').val(treeNode.menuName);
+                $('#remark').val(treeNode.remark);
+                $('#sort').val(treeNode.sort);
+                $("input[name='sysmenus.status'][value=" +treeNode.status+"]").attr("checked",true); 
+                $('#menuName').focus();
+                $('#url').val(treeNode.url);
                 var parent = treeNode.getParentNode();
                 $('#parentName').val(parent == null ? '无' : parent.showName);
                 zTree.selectNode(treeNode);
